@@ -1,1 +1,1 @@
-# Product-Review-Management-Website-with-Angular-SpringBoot
+# Product-Review-Management-Application-with-Angular-SpringBoot
