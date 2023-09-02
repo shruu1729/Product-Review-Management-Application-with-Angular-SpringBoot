@@ -1,0 +1,43 @@
+<!-- Display the toolbar with the title -->
+<mat-toolbar>
+    <span><h1><b>The Community</b></h1></span>
+    <span class="example-spacer"></span>
+    <span *ngIf="currentUser">Welcome {{currentUser}}</span>
+    &nbsp; &nbsp;
+    <button  type="button" class="btn btn-light" (click)="back()">back</button>
+</mat-toolbar>
+<!-- Create a row container -->
+<div class="row">
+  <!-- Create a column container with size 6 (half width) -->
+    <div class="col-sm-6">
+      <tbody>
+        <div class=" container mt-4">
+          <h2><b>Product</b></h2>
+            <!-- Display the Product ID -->
+          Product ID: {{res.productId}}<br>
+           <!-- Display the Product Name -->
+          Name: {{res.productName}}<br>
+         </div>
+     </tbody>
+    </div>
+      <!-- Create another column container with size 6 (half width) -->
+    <div class="col-sm-6">
+      <tbody>
+        <div class=" container mt-4">
+          <h2>Reviews</h2>
+          <!-- Iterate over each item in the 'res.review' array -->
+        <div  *ngFor="let items of res.review"  >
+          <!-- Check if the review state is 'true' -->
+            <div *ngIf="items.state=='true' ">
+        <!-- Display the Review content -->
+         Review: "{{items.review}}"<br>
+         Ratings: "{{items.rating}} out of 5"
+         <br>
+         <!-- Display additional message if 'msg' is defined -->
+         <div *ngIf="msg"><p>{{msg}}</p></div>
+        </div></div>
+        </div>
+        </tbody>
+    </div>
+   
+  </div>

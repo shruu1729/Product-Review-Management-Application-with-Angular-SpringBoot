@@ -1,0 +1,54 @@
+<!-- Display the title for the registration form -->
+<div mat-dialog-title class="dialogTitle">
+    Register Here!!
+</div>
+<!-- Display a success message if registration is successful -->
+<div class="alert alert-success" *ngIf="successMsg"> 
+    {{successMsg}}
+</div>
+<!-- Display an error message if registration fails -->
+<div class="alert alert-danger" *ngIf="errorMsg"> 
+    {{errorMsg}}
+</div>
+
+<!-- Registration form with formGroup binding and submit event binding -->
+<form [formGroup]="registrationForm" (ngSubmit)="register()">
+    <div mat-dialog-content class="content">
+         <!-- First row of form inputs -->
+        <div class="row">
+            <!-- Input field for email -->
+            <mat-form-field appearance="outline">
+                <mat-label>EMAIL</mat-label>
+                <input type="email" matInput placeholder="Enter your email" formControlName="email">
+            </mat-form-field>
+            <!-- Input field for first name -->
+            <mat-form-field appearance="outline">
+                <mat-label>FIRST NAME</mat-label>
+                <input type="text" matInput placeholder="Enter your first name" formControlName="first_name">
+            </mat-form-field>
+        </div>
+        <div class="row">
+              <!-- Input field for last name -->
+            <mat-form-field appearance="outline">
+                <mat-label>LAST NAME</mat-label>
+                <input type="text" matInput placeholder="Enter your last name" formControlName="last_name">
+            </mat-form-field>
+             <!-- Input field for password -->
+            <mat-form-field appearance="outline">
+                <mat-label>PASSWORD</mat-label>
+                <input type="password" matInput placeholder="Enter your password" formControlName="password">
+            </mat-form-field>
+            <!-- Link to login form for users who already have an account -->
+            <a (click)="openLoginForm()">Already have an account? Log in here</a>
+        </div>
+    </div>
+    
+ <!-- Form action buttons -->
+    <div mat-dialog-actions class="submitBtn">
+        <!-- Button to submit the registration form -->
+        <button mat-raised-button color="primary" type="submit">Sign Up</button>
+        <!-- Button to reset the registration form -->
+        <button mat-raised-button color="warn" type="reset">Reset</button>
+        
+    </div>
+</form>

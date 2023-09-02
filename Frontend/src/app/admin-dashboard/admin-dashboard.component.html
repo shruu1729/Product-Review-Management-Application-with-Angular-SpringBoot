@@ -1,0 +1,55 @@
+<mat-toolbar>
+     <!-- Display the title of the toolbar -->
+    <span><h1><b>The Community</b></h1></span>
+    <!-- Add a spacer to push the following elements to the right -->
+    <span class="example-spacer"></span>
+     <!-- Display the welcome message with the current user's name if available -->
+    <span *ngIf="currentUser">Welcome {{currentUser}}</span>
+    &nbsp; &nbsp;
+     <!-- Add a logout button with a click event to trigger the logout method -->
+    <button  type="button" class="btn btn-light" (click)="logout()" >Logout</button>
+</mat-toolbar>
+<!-- Add a heading for the products list -->
+<div class="bbbootstrap">
+  <div class="heading">
+      <h1><b>List of Products</b></h1>
+  </div></div>
+<!-- Create a container for the table -->
+<div class="container-fluid">
+  <!-- Create a table with styling -->
+    <table class="table table-bordered table-hover table-striped" style="border: 10px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    ">
+      <!-- Add table header -->
+      <thead class="table-dark">
+         
+            <tr class="bg-info text-dark">
+              <!--<th scope="col"></th>-->
+             <th scope="col">Product ID</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Color</th>
+              <th scope="col">Size</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Price</th>
+              <th scope="col">Reviews</th>
+            </tr>
+          </thead>
+          <!-- Add table body with product details using ngFor loop -->
+          <tbody>
+            <tr *ngFor="let product of products">
+                <th>{{product.productId}}</th>
+                <th>{{product.productName}}</th>
+                <th>{{product.color}}</th>
+                <th>{{product.size}}</th>
+                <th>{{product.gender}}</th>
+                <th>{{product.price}}</th>
+                <!-- Add a button to navigate to the 'approve-review' page with the specific product ID -->
+                <th><button type="button" routerLink="/approve-review/{{product.productId}}" class="btn btn-outline-success">All Reviews</button>&nbsp;
+</th>
+
+            </tr>
+          </tbody>
+    </table>
+    </div>

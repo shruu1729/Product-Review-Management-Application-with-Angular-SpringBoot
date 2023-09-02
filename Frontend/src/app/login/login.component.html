@@ -1,0 +1,33 @@
+<div mat-dialog-title class="dialogTitle">
+    Login Here!!
+</div>
+ <div class="alert alert-danger" role="alert" *ngIf="err">
+    {{err}}
+  </div> 
+<form [formGroup]= "loginForm" (ngSubmit)="login()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+              <!-- Email input field -->
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Enter email" formControlName="username">
+            </mat-form-field>
+            <!-- Password input field -->
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Enter password" formControlName="userPassword">
+            </mat-form-field>
+             <!-- Link to register as a new user --->
+            <a (click)="openRegistrationForm()">New user? Register here!!</a>
+        </div>
+        
+    </div>
+
+    <div mat-dialog-actions class="submitBtn">
+         <!-- Login button -->
+        <button mat-raised-button color="primary" type="submit">Log In</button>
+          <!-- Reset button -->
+        <button mat-raised-button color="warn" type="reset">Reset</button>
+        
+    </div>
+</form>

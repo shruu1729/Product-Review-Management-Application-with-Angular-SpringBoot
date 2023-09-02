@@ -1,0 +1,62 @@
+<mat-toolbar>
+    <!-- Application title -->
+    <span><h1><b>The Community</b></h1></span>
+    <span class="example-spacer"></span>
+    <!-- Display welcome message with the current user's name -->
+    <span *ngIf="currentUser">Welcome {{currentUser}}</span>
+    &nbsp; &nbsp;
+    <!-- Logout button -->
+    <button  type="button" class="btn btn-light" (click)="logout()" >Logout</button>
+</mat-toolbar>
+<!-- Search input field -->
+<div class="bbbootstrap">
+    <div class="container">
+    <form>
+      <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+      <input type="text" id="Form_Search" matInput placeholder="Search for products " class="InputBox" name="searchQuery" [(ngModel)]="searchQuery" required="true">
+      <input type="submit" id="Form_Go" class="Button" value="GO" (click)="searchProduct()">
+    </form>
+    
+    </div>
+    </div>
+<!-- Product table -->
+<div class="container-fluid">
+    <table class="table table-bordered table-hover table-striped" *ngIf="productData">
+        <thead class="table-dark">
+         
+            <tr class="bg-info text-dark">
+              <!--<th scope="col"></th>-->
+             <th scope="col">Product ID</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Color</th>
+              <th scope="col">Size</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Price</th>
+              <th scope="col">No. of Reviews</th>
+              <th scope="col">Avg. Ratings</th>
+              <th scope="col">Reviews</th>
+            </tr>
+          </thead>
+          <tbody>
+              <!-- Display each product in a table row -->
+            <tr *ngFor="let product of productData">
+                <th>{{product.productId}}</th>
+                <th>{{product.productName}}</th>
+                <th>{{product.color}}</th>
+                <th>{{product.size}}</th>
+                <th>{{product.gender}}</th>
+                <th>{{product.price}}</th>
+                <th>{{product.review.length}}</th>
+                <th>{{calculateAvgRating(product.review) | number:'1.1-1'}}</th>
+                 <!-- View reviews button -->
+                <th><button *ngIf="productData!=null" (click)="addReview(product)" type="button"  class="btn btn-outline-success">Add Review</button>&nbsp;
+                    <button  *ngIf="productData!=null" routerLink="/view-review/{{product.productId}}" type="button"  class="btn btn-outline-danger">View</button></th>
+            </tr>
+          </tbody>
+    </table>
+<!-- Display error message if there are no products available -->
+    <div *ngIf="message" class="errMsg">
+        <h2>{{message}}</h2>
+    </div>
+</div>
+
