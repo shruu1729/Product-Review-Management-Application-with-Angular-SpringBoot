@@ -16,13 +16,13 @@ This repository contains the source code for a Product Community Website, consis
 
 ### Backend (Spring Boot)
 
-- **User Authentication API**: Support successful/unsuccessful user authentication validation.
-- **User Registration API**: Register new users.
-- **Search Product API**: Search products by name, brand, and product code.
-- **Post Reviews API**: Post new reviews.
-- [BONUS] **Approve Review API**: Approve a review.
-- **Request Review API**: Request a review for a product.
-- **Stats API**: Get homepage statistics.
+- Support successful/unsuccessful user authentication validation.
+- Register new users.
+- Search products by name, brand, and product code.
+- Post new reviews.
+- Approve a review.
+- Request a review for a product.
+- Get homepage statistics.
 
 ### Frontend (Angular)
 
